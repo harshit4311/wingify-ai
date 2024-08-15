@@ -55,6 +55,40 @@ class SearchAPI:
 class RecommendationEngine:
     def generate(self, analysis, articles):
         recommendations = []
+
         if 'High' in analysis.get('cholesterol_level', ''):
             recommendations.append("Consider reducing saturated fat intake.")
+            recommendations.append("Increase your intake of soluble fiber.")
+            recommendations.append("Exercise regularly to help lower cholesterol levels.")
+            recommendations.append("Limit your intake of red meat and full-fat dairy products.")
+            recommendations.append("Incorporate more omega-3 fatty acids into your diet.")
+            recommendations.append("")
+
+        if 'Normal' in analysis.get('glucose_level', ''):
+            recommendations.append("Maintain your current diet to keep glucose levels stable.")
+            recommendations.append("Continue regular physical activity.")
+            recommendations.append("Monitor blood sugar levels periodically.")
+            recommendations.append("")
+
+        if 'Low' in analysis.get('glucose_level', ''):
+            recommendations.append("Increase carbohydrate intake to stabilize glucose levels.")
+            recommendations.append("Consider eating smaller, more frequent meals.")
+            recommendations.append("Avoid skipping meals, especially breakfast.")
+            recommendations.append("")
+
+        if 'Elevated' in analysis.get('blood_pressure', ''):
+            recommendations.append("Reduce salt intake to help manage blood pressure.")
+            recommendations.append("Avoid processed foods that are high in sodium.")
+            recommendations.append("Engage in regular cardiovascular exercise.")
+            recommendations.append("Monitor your blood pressure regularly.")
+            recommendations.append("")
+
+        # Additional generic recommendations
+        recommendations.append("Stay hydrated by drinking enough water and taking electrolytes throughout the day.")
+        recommendations.append("Make sure you go out in the sun evry morning and get that daily dose of Vitamin-D.")
+        recommendations.append("Avoid smoking and alcohol consumption.")
+        recommendations.append("Ensure you get sufficient sleep every night.")
+        recommendations.append("Manage stress through relaxation techniques like meditation or yoga.")
+        # recommendations.append("")
+
         return recommendations
